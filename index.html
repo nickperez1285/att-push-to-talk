@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>WhoseApp</title>
+    <title>WebRTC PoC Client</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <link rel="stylesheet" type="text/css" href="css/pttApp.css">
-<style type="text/css">
-    
-</style>
+
     <script>
         <!-- populate the callee MDN for the ptt Widget-->
         var loaded = false;
     var activationCode = '6243995';
 
     
-        function populateCalleeMDN(sel)
-        {
-            var calledMDN = [];
-            var nSelected = 0;
 
-            for(var i=0;i<sel.options.length;i++)
-            {
-                if(sel.options[i].selected)
-                {
-                    calledMDN[nSelected] = sel.options[i].value;
-                    nSelected++;
-                }
-            }
-            window.frames['ptt'].setCalledParty(calledMDN);
-        }
 
         function loadPTTApp()
         {
@@ -90,7 +74,7 @@
 <div id="contactList">
     <h1>My App</h1>
     <select id="MDN" class="dropdown" multiple onchange="populateCalleeMDN(this)" onscroll="onMDNListScroll()">
-        <option value="12547840704">nick</option>
+  <option value="12547840704">nick</option>
         <option value="12547840705">arvind</option>
         <option value="12547840706">anari</option>
   
