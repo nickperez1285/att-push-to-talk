@@ -13,6 +13,20 @@
 
     
 
+        function populateCalleeMDN(sel)
+        {
+            var calledMDN = [];
+            var nSelected = 0;
+            for(var i=0;i<sel.options.length;i++)
+            {
+                if(sel.options[i].selected)
+                {
+                    calledMDN[nSelected] = sel.options[i].value;
+                    nSelected++;
+                }
+            }
+            window.frames['ptt'].setCalledParty(calledMDN);
+        }
 
         function loadPTTApp()
         {
