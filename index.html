@@ -7,10 +7,27 @@
     <link rel="stylesheet" type="text/css" href="css/pttApp.css">
 <!-- mdn : 12547840706 -->
 <!-- mdn : 12547840705 -->
-    <script>
+
+
+  
+
+
+<body class="container">
+
+<div id="contactList">
+    <h1>My App</h1>
+    <select id="MDN" class="dropdown" multiple onchange="populateCalleeMDN(this)" onscroll="onMDNListScroll()">
+        <option value="friend 1">12547840704</option>
+        <option value="friend 2">12547840705</option>
+        <option value="friend 3">12547840706</option>
+     </select>
+</div>
+
+
+  <script>
         <!-- populate the callee MDN for the ptt Widget-->
         var loaded = false;
-    var originator  = '12547840704';
+    var originator  = document.getElementsByTagName('option');
     var activationCode = '6243995';
 
     
@@ -78,27 +95,13 @@
 
 
     </script>
-
-
-<body class="container">
 <div class="widget">
     <!-- Load the PTT Widget App-->
     <iframe name='ptt' class="pttWidget" id="pttWidget" onload="loadPTTApp()" width="100%" height="460px" scrolling="no">
     </iframe>
 </div>
 
-<div id="contactList">
-    <h1>My App</h1>
-    <select id="MDN" class="dropdown" multiple onchange="populateCalleeMDN(this)" onscroll="onMDNListScroll()">
-        <!-- <option value="friend 1">12547840704</option> -->
-        <option value="friend 2">12547840705</option>
-        <option value="friend 3">12547840706</option>      
-     </select>
-</div>
 
-
-<!--<script src="scripts/pouch/pouchdb-5.3.1.js"></script>
-<script src="scripts/pouch/pouchInterface.js"></script> -->
 
 </body>
 </html>
