@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="css/pttWidget.css" >
+<!--<link media="screen and (max-device-width:480px)" href="css/pttApp.css"/> -->
+    <script src="https://xcapapi.kodiaknetworks.com/JSCDE_shape/EPTTButton.js"></script>
+</head>
+
+<body>
+<script>
+
+    //set the Originator MDN.
+    //setLoginId('18111100021');
+
+    //Example for an Adhoc Call.
+    //var calledParty = [];
+    //calledParty[0] = '18111100001';
+    //calledParty[1] = '18111100002';
+    //setCalledParty(calleeMDN);
+
+</script>
+
+<!--Info Screen-->
+<div class="displayScreen" id="displayScreen">
+<h1 class="callscreen" id="callscreen">PTT App</h1>
+</div>
+
+<div class="infoScreen" id="infoScreen">
+    <h1 id="talkerInfo" class="grpname"></h1>
+    <!--<p id="talkerInfo"></p>-->
+    <img id="talker" name="talkerIcon" class="talker"/>
+</div>
+
+<!-- Divider -->
+<!--<div class="divider"></div>-->
+
+<!-- Push To Talk -->
+<div class="pushToTalk" id="pushToTalk">
+    <img id="call_icon" name="floor" class="call_icon"/>
+</div>
+
+
+
+<!-- Divider -->
+<!--<div class="divider"></div>-->
+
+<!-- Utility -->
+<div class="UtilityScreen">
+    <img id="sendAlert" value="Send IPA" class="alertdisp"/>
+    <img id="end" value="End Call" class="enddisp"/>
+</div>
+
+</body>
+</html>

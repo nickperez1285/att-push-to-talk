@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello PTT</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="css/pttApp.css">
+<!-- mdn : 12547840706 -->
+<!-- mdn : 12547840705 -->
+    <script>
+        <!-- populate the callee MDN for the ptt Widget-->
+        var loaded = false;
+    var originator  = '12547840704';
+
+    var activationCode = '6243995';
+
+    
+        function populateCalleeMDN(sel)
+        {
+            var calledMDN = [];
+            var nSelected = 0;
+            for(var i=0;i<sel.options.length;i++)
+            {
+                if(sel.options[i].selected)
+                {
+                    calledMDN[nSelected] = sel.options[i].value;
+                    nSelected++;
+                }
+            }
+            window.frames['ptt'].setCalledParty(calledMDN);
+        }
+
+        function loadPTTApp()
+        {
+            if(loaded==false)
+            {
+                loaded = true;
+                var queryString = window.location.search;
+                if(queryString!=undefined && queryString!=null && queryString!="")
+                {
+                    queryString = queryString.substring(1);
+                    var params  = parseQueryString(queryString);
+                    console.log("Params :" + JSON.stringify(params));
+                    originator  = params["orig"];
+                }
+                var url = "PTTWidget.html";
+                document.getElementById('pttWidget').src = url;
+            }
+            else
+            {
+                window.frames['ptt'].setLoginId(originator);
+            }
+
+        }
+
+
+        function onMDNListScroll() {
+
+            if(loaded){
+                window.frames['ptt'].onScroll();
+            }
+        }
+
+        function parseQueryString( queryString )
+        {
+            var params = {}, queries, temp, i, l;
+
+            // Split into key/value pairs
+            queries = queryString.split("&");
+
+            // Convert the array of strings into an object
+            for ( i = 0, l = queries.length; i < l; i++ )
+            {
+                temp = queries[i].split('=');
+                params[temp[0]] = temp[1];
+            }
+            return params;
+        }
+
+
+    </script>
+
+
+<body class="container">
+<div class="widget">
+    <!-- Load the PTT Widget App-->
+    <iframe name='ptt' class="pttWidget" id="pttWidget" onload="loadPTTApp()" width="100%" height="460px" scrolling="no">
+    </iframe>
+</div>
+<div id="contactList">
+    <h1>My App</h1>
+    <select id="MDN" class="dropdown" multiple onchange="populateCalleeMDN(this)" onscroll="onMDNListScroll()">
+        <option value="5500001300">5500001300</option>
+        <option value="5500001302">5500001302</option>
+        <option value="2547843710">2547843710</option>
+        <option value="5500000389">5500000389</option>
+        <option value="5500000390">5500000390</option>
+        <option value="5500000397">5500000397</option>
+        <option value="5500001303">5500001303</option>
+        <option value="4257854755">4257854755</option>
+        <option value="4256158176">4256158176</option>
+        <option value="9727624908">9727624908</option>
+     </select>
+</div>
+
+<!--<script src="scripts/pouch/pouchdb-5.3.1.js"></script>
+<script src="scripts/pouch/pouchInterface.js"></script> -->
+
+</body>
+</html>
+
