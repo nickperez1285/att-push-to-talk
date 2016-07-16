@@ -11,7 +11,7 @@
         <!-- populate the callee MDN for the ptt Widget-->
         var loaded = false;
     var originator  = '12547840704';
-
+    var visitor =  '12547840705' ; 
     var activationCode = '6243995';
 
     
@@ -49,6 +49,8 @@
             else
             {
                 window.frames['ptt'].setLoginId(originator);
+                // window.frames['ptt'].setLoginId(activationCode);
+
             }
 
         }
@@ -89,8 +91,12 @@
 </div>
 <div id="contactList">
     <h1>My App</h1>
+
+    <p> Please select visitor as your user ID </p>
     <select id="MDN" class="dropdown" multiple onchange="populateCalleeMDN(this)" onscroll="onMDNListScroll()">
-        <option value="5500001300">Nicks Boom Boom Room </option>
+<!--         <option value="12547840704"> Nicks Boom Boom Room </option>
+ -->        <option value="12547840705">visitor  </option>
+
        
      </select>
 </div>
