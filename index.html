@@ -30,19 +30,19 @@
             window.frames['ptt'].setCalledParty(calledMDN);
         }
 
-        function loadPTTApp()
+        function loadPTTApp(mdn)
         {
             if(loaded==false)
             {
-                loaded = true;
-                var queryString = window.location.search;
-                if(queryString!=undefined && queryString!=null && queryString!="")
-                {
-                    queryString = queryString.substring(1);
-                    var params  = parseQueryString(queryString);
-                    console.log("Params :" + JSON.stringify(params));
-                    originator  = params["orig"];
-                }
+                // loaded = true;
+                // var queryString = window.location.search;
+                // if(queryString!=undefined && queryString!=null && queryString!="")
+                // {
+                   //  queryString = queryString.substring(1);
+                   //  var params  = parseQueryString(queryString);
+                   //  console.log("Params :" + JSON.stringify(params));
+                   originator =mdn;
+                // }
                 var url = "PTTWidget.html";
                 document.getElementById('pttWidget').src = url;
             }
@@ -86,7 +86,7 @@
 <body class="container">
 <div class="widget">
     <!-- Load the PTT Widget App-->
-    <iframe name='ptt' class="pttWidget" id="pttWidget" onload="loadPTTApp()" width="100%" height="460px" scrolling="no">
+    <iframe name='ptt' class="pttWidget" id="pttWidget" onload="loadPTTApp('12547840704')" width="100%" height="460px" scrolling="no">
     </iframe>
 </div>
 <div id="contactList">
