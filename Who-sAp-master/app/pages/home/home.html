@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar primary>
+    <ion-title class="text-center"><img src="img/logo.svg" /></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home" dark>
+  <h3 class="text-center" padding>
+    <ion-icon name="ios-more-outline"></ion-icon> Friends Online <ion-icon name="ios-more-outline"></ion-icon>
+  </h3>
+  <ion-list>
+    <ion-item style="border-radius: 5px; margin-bottom:3px" (click)="populateCalleeMDN('12547840704')">
+      <ion-avatar item-left style="border: 2px solid #F4A217; border-radius: 25px;">
+        <img src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.png">
+      </ion-avatar>
+      <h2>Nic</h2>
+      <h3>Don't Know What To Do!</h3>
+      <p>I've had a pretty messed up day. If we just...</p>
+    </ion-item>
+    <ion-item style="border-radius: 5px; margin-bottom:3px" (click)="populateCalleeMDN('12547840705')">
+      <ion-avatar item-left style="border: 2px solid #F4A217; border-radius: 25px;">
+        <img src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.png">
+      </ion-avatar>
+      <h2>Arvind</h2>
+      <h3>Don't Know What To Do!</h3>
+      <p>I've had a pretty messed up day. If we just...</p>
+    </ion-item>
+    <ion-item style="border-radius: 5px; margin-bottom:3px" (click)="populateCalleeMDN('12547840706')">
+      <ion-avatar item-left style="border: 2px solid #F4A217; border-radius: 25px;">
+        <img src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.png">
+      </ion-avatar>
+      <h2>Anari</h2>
+      <h3>Don't Know What To Do!</h3>
+      <p>I've had a pretty messed up day. If we just...</p>
+    </ion-item>
+
+  </ion-list>
+  <ion-card>
+    <!--Status Bar-->
+      <div class="infoScreen">
+          <p id="talkerInfo"></p>
+          <img id="talker" name="talkerIcon"/>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- PTT Button -->
+      <div class="pushToTalk">
+          <img id="call_icon" name="floor" width="65%"/>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider"></div>
+
+      <!-- Action bar (Alert and End Call Buttons) -->
+      <div class="UtilityScreen">
+          <img id="sendAlert" value="Send IPA"/>
+          <img id="end" value="End Call"/>
+      </div>
+  </ion-card>
+  <div class="row">
+    <button fab primary fab-bottom fab-left style="padding:43px">
+      <ion-icon name="md-megaphone"></ion-icon>
+    </button>
+
+  </div>
+</ion-content>
