@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhosApp</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="css/pttApp.css">
+<!-- mdn : 12547840706 -->
+<!-- mdn : 12547840705 -->
+
+
+    <script>
+        <!-- populate the callee MDN for the ptt Widget-->
+
+    
+        function populateCalleeMDN(sel)
+        {
+            var calledMDN = [];
+            var nSelected = 0;
+            for(var i=0;i<sel.options.length;i++)
+            {
+                if(sel.options[i].selected)
+                {
+                    calledMDN[nSelected] = sel.options[i].value;
+                    nSelected++;
+                }
+            }
+            window.frames['ptt'].setCalledParty(calledMDN);
+        }
+
+        function loadPTTApp(mdn)
+        {
+            if(loaded==false)
+            {
+                loaded = true;
+                // var queryString = window.location.search;
+                // if(queryString!=undefined && queryString!=null && queryString!="")
+                //     // sets a default user id to what is put in the url params 
+                // {
+                //     queryString = queryString.substring(1);
+                //     var params  = parseQueryString(queryString);
+                //     console.log("Params :" + JSON.stringify(params));
+                //     originator  = params["orig"];
+                // }
+
+                // this is where user is directed to if it hasnt already been loaded 
+                var url = "PTTWidget.html";
+                document.getElementById('pttWidget').src = url;
+            }
+            else
+            {
+                // 
+                // window.frames['ptt'].setLoginId(originator);
+                window.frames['ptt'].setLoginId(mdn);
+            }
+
+        }
+
+
+        function onMDNListScroll() {
+
+            if(loaded){
+                window.frames['ptt'].onScroll();
+            }
+        }
+
+        function parseQueryString( queryString )
+        {
+            var params = {}, queries, temp, i, l;
+
+            // Split into key/value pairs
+            queries = queryString.split("&");
+
+            // Convert the array of strings into an object
+            for ( i = 0, l = queries.length; i < l; i++ )
+            {
+                temp = queries[i].split('=');
+                params[temp[0]] = temp[1];
+            }
+            return params;
+        }
+
+
+    </script>
+
+
+<body class="container">
+
+<div id="contactList">
+    <h1>My App</h1>
+    <select id="MDN" class="dropdown" multiple onchange="populateCalleeMDN(this)" onscroll="onMDNListScroll()">
+        <option value="friend 1">12547840704</option>
+        <option value="friend 2">12547840705</option>
+        <option value="friend 3">12547840706</option>
+     </select>
+</div>
+
+
+
+<div class="widget">
+    <!-- Load the PTT Widget App-->
+    <iframe name='ptt' class="pttWidget" id="pttWidget" onload="loadPTTApp()" width="100%" height="460px" scrolling="no">
+    </iframe>
+</div>
+
+
+
+<!--<script src="scripts/pouch/pouchdb-5.3.1.js"></script>
+<script src="scripts/pouch/pouchInterface.js"></script> -->
+
+</body>
+</html>
+
