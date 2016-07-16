@@ -7,12 +7,26 @@
     <link rel="stylesheet" type="text/css" href="css/pttApp.css">
 
     <script>
+        <!-- populate the callee MDN for the ptt Widget-->
         var loaded = false;
-        var originator = '12547840704'
+    var originator  = '12547840704';
     var activationCode = '6243995';
 
     
-
+        function populateCalleeMDN(sel)
+        {
+            var calledMDN = [];
+            var nSelected = 0;
+            for(var i=0;i<sel.options.length;i++)
+            {
+                if(sel.options[i].selected)
+                {
+                    calledMDN[nSelected] = sel.options[i].value;
+                    nSelected++;
+                }
+            }
+            window.frames['ptt'].setCalledParty(calledMDN);
+        }
 
         function loadPTTApp()
         {
@@ -25,7 +39,7 @@
                     queryString = queryString.substring(1);
                     var params  = parseQueryString(queryString);
                     console.log("Params :" + JSON.stringify(params));
-                    originator  = params["id"];
+                    originator  = params["orig"];
                 }
                 var url = "PTTWidget.html";
                 document.getElementById('pttWidget').src = url;
@@ -72,11 +86,13 @@
     </iframe>
 </div>
 <div id="contactList">
-    <h1>Calling List</h1>
+    <h1>My App</h1>
     <select id="MDN" class="dropdown" multiple onchange="populateCalleeMDN(this)" onscroll="onMDNListScroll()">
-   <option value="friend 1">12547840704</option>
-        <option value="friend 2">12547840705</option>
-        <option value="friend 3">12547840706</option>
+        <option value="12547840704">12547840704</option>
+        <option value="12547840705">12547840705</option>
+        <option value="12547840706">12547840706</option>
+  
+ 
      </select>
 </div>
 
