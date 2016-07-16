@@ -4,6 +4,12 @@
 	<title></title>
 </head>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#myButton').click(function() {
+      foo($('#formValueId').val());
+    });
+});
 </script>
 <body>
 <ul>
@@ -14,8 +20,8 @@
 <p> input one of the values above to use as a your caller id login  </p>
 
  <form action="index.html" method="GET">
-    <input type="text" />
-    <input type="submit" value="login" />
+    <input type="text" id = "formValueId" name="id">
+    <input type="submit" value="login" id="myButton" />
 </form>
 
 

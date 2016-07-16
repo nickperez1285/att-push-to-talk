@@ -25,7 +25,7 @@
                     queryString = queryString.substring(1);
                     var params  = parseQueryString(queryString);
                     console.log("Params :" + JSON.stringify(params));
-                    originator  = params["orig"];
+                    originator  = params["id"];
                 }
                 var url = "PTTWidget.html";
                 document.getElementById('pttWidget').src = url;
